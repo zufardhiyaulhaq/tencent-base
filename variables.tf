@@ -28,7 +28,6 @@ variable "public_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
-    name              = string
   }))
 }
 
@@ -37,7 +36,6 @@ variable "utility_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
-    name              = string
   }))
 }
 
@@ -46,7 +44,6 @@ variable "application_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
-    name              = string
   }))
 }
 
@@ -55,7 +52,6 @@ variable "stateful_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
-    name              = string
   }))
 }
 
@@ -64,7 +60,6 @@ variable "compliance_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
-    name              = string
   }))
 }
 

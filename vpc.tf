@@ -24,7 +24,7 @@ resource "tencentcloud_subnet" "application_subnets" {
   vpc_id            = tencentcloud_vpc.vpc.id
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
-  name              = each.value.name
+  name              = each.key
 
   route_table_id = tencentcloud_route_table.application_route_table.id
 
@@ -50,7 +50,7 @@ resource "tencentcloud_subnet" "utility_subnets" {
   vpc_id            = tencentcloud_vpc.vpc.id
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
-  name              = each.value.name
+  name              = each.key
 
   route_table_id = tencentcloud_route_table.utility_route_table.id
 
@@ -76,7 +76,7 @@ resource "tencentcloud_subnet" "public_subnets" {
   vpc_id            = tencentcloud_vpc.vpc.id
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
-  name              = each.value.name
+  name              = each.key
 
   route_table_id = tencentcloud_route_table.public_route_table.id
 
@@ -102,7 +102,7 @@ resource "tencentcloud_subnet" "stateful_subnets" {
   vpc_id            = tencentcloud_vpc.vpc.id
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
-  name              = each.value.name
+  name              = each.key
 
   route_table_id = tencentcloud_route_table.stateful_route_table.id
 
@@ -128,7 +128,7 @@ resource "tencentcloud_subnet" "compliance_subnets" {
   vpc_id            = tencentcloud_vpc.vpc.id
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
-  name              = each.value.name
+  name              = each.key
 
   route_table_id = tencentcloud_route_table.compliance_route_table.id
 
