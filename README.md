@@ -46,16 +46,17 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_application_nat_ip_count"></a> [application\_nat\_ip\_count](#input\_application\_nat\_ip\_count) | Number of application NAT IPs | `number` | n/a | yes |
-| <a name="input_application_subnets"></a> [application\_subnets](#input\_application\_subnets) | List of application subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    name             = string<br>  }))</pre> | n/a | yes |
-| <a name="input_compliance_subnets"></a> [compliance\_subnets](#input\_compliance\_subnets) | List of compliance subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    name             = string<br>  }))</pre> | n/a | yes |
+| <a name="input_application_subnets"></a> [application\_subnets](#input\_application\_subnets) | List of application subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
+| <a name="input_compliance_subnets"></a> [compliance\_subnets](#input\_compliance\_subnets) | List of compliance subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
+| <a name="input_enable_vpc_multicast"></a> [enable\_vpc\_multicast](#input\_enable\_vpc\_multicast) | Enable VPC multicast | `bool` | `false` | no |
 | <a name="input_general_nat_ip_count"></a> [general\_nat\_ip\_count](#input\_general\_nat\_ip\_count) | Number of general NAT IPs | `number` | n/a | yes |
 | <a name="input_label_environment"></a> [label\_environment](#input\_label\_environment) | Enviroment label | `string` | n/a | yes |
 | <a name="input_label_team"></a> [label\_team](#input\_label\_team) | Team label | `string` | n/a | yes |
-| <a name="input_public_subnets"></a> [public\_subnets](#input\_public\_subnets) | List of public subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    name             = string<br>  }))</pre> | n/a | yes |
+| <a name="input_public_subnets"></a> [public\_subnets](#input\_public\_subnets) | List of public subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | Region of VPC | `string` | n/a | yes |
 | <a name="input_reserved_nat_ip"></a> [reserved\_nat\_ip](#input\_reserved\_nat\_ip) | Number of reserved NAT IPs | `number` | n/a | yes |
-| <a name="input_stateful_subnets"></a> [stateful\_subnets](#input\_stateful\_subnets) | List of stateful subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    name             = string<br>  }))</pre> | n/a | yes |
-| <a name="input_utility_subnets"></a> [utility\_subnets](#input\_utility\_subnets) | List of utility subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    name             = string<br>  }))</pre> | n/a | yes |
+| <a name="input_stateful_subnets"></a> [stateful\_subnets](#input\_stateful\_subnets) | List of stateful subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
+| <a name="input_utility_subnets"></a> [utility\_subnets](#input\_utility\_subnets) | List of utility subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
 | <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR block for the VPC | `string` | n/a | yes |
 | <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the VPC | `string` | n/a | yes |
 
