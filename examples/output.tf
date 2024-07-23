@@ -1,74 +1,74 @@
 output "vpc_name" {
   description = "VPC name"
-  value       = tencentcloud_vpc.vpc.name
+  value       = module.tencent_vpc.vpc_name
 }
 
 output "private_dns_name" {
   description = "private DNS name"
-  value       = tencentcloud_private_dns_zone.private_dns.domain
+  value       = module.tencent_vpc.private_dns_name
 }
 
 output "utility_subnet_ids" {
   description = "Utility subnet IDs"
-  value       = values(tencentcloud_subnet.utility_subnets).*.id
+  value       = module.tencent_vpc.utility_subnet_ids
 }
 
 output "application_subnet_ids" {
   description = "Application subnet IDs"
-  value       = values(tencentcloud_subnet.application_subnets).*.id
+  value       = module.tencent_vpc.application_subnet_ids
 }
 
 output "stateful_subnet_ids" {
   description = "Stateful subnet IDs"
-  value       = values(tencentcloud_subnet.stateful_subnets).*.id
+  value       = module.tencent_vpc.stateful_subnet_ids
 }
 
 output "compliance_subnet_ids" {
   description = "Compliance subnet IDs"
-  value       = values(tencentcloud_subnet.compliance_subnets).*.id
+  value       = module.tencent_vpc.compliance_subnet_ids
 }
 
 output "public_subnet_ids" {
   description = "Public subnet IDs"
-  value       = values(tencentcloud_subnet.public_subnets).*.id
+  value       = module.tencent_vpc.public_subnet_ids
 }
 
 output "utility_subnet_cidr" {
   description = "Utility subnet CIDR"
-  value       = values(tencentcloud_subnet.utility_subnets).*.cidr_block
+  value       = module.tencent_vpc.utility_subnet_cidr
 }
 
 output "application_subnet_cidr" {
   description = "Application subnet CIDR"
-  value       = values(tencentcloud_subnet.application_subnets).*.cidr_block
+  value       = module.tencent_vpc.application_subnet_cidr
 }
 
 output "stateful_subnet_cidr" {
   description = "Stateful subnet CIDR"
-  value       = values(tencentcloud_subnet.stateful_subnets).*.cidr_block
+  value       = module.tencent_vpc.stateful_subnet_cidr
 }
 
 output "compliance_subnet_cidr" {
   description = "Compliance subnet CIDR"
-  value       = values(tencentcloud_subnet.compliance_subnets).*.cidr_block
+  value       = module.tencent_vpc.compliance_subnet_cidr
 }
 
 output "public_subnet_cidr" {
   description = "Public subnet CIDR"
-  value       = values(tencentcloud_subnet.public_subnets).*.cidr_block
+  value       = module.tencent_vpc.public_subnet_cidr
 }
 
 output "nat_general_addresses" {
   description = "NAT general addresses"
-  value       = tencentcloud_eip.general_nat_eip.*.public_ip
+  value       = module.tencent_vpc.nat_general_addresses
 }
 
 output "nat_application_addresses" {
   description = "NAT application addresses"
-  value       = tencentcloud_eip.application_nat_eip.*.public_ip
+  value       = module.tencent_vpc.nat_application_addresses
 }
 
 output "nat_reserved_addresses" {
   description = "NAT reserved addresses"
-  value       = tencentcloud_eip.reserved_nat_ip.*.public_ip
+  value       = module.tencent_vpc.nat_reserved_addresses
 }
