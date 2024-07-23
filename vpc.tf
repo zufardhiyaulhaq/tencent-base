@@ -1,6 +1,7 @@
 resource "tencentcloud_vpc" "vpc" {
-  name       = var.vpc_name
-  cidr_block = var.vpc_cidr
+  name         = var.vpc_name
+  cidr_block   = var.vpc_cidr
+  is_multicast = var.enable_vpc_multicast
 
   tags = {
     team        = var.label_team
@@ -25,6 +26,8 @@ resource "tencentcloud_subnet" "application_subnets" {
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
   name              = each.key
+  is_multicast      = each.value.enable_multicast
+
 
   route_table_id = tencentcloud_route_table.application_route_table.id
 
@@ -51,6 +54,8 @@ resource "tencentcloud_subnet" "utility_subnets" {
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
   name              = each.key
+  is_multicast      = each.value.enable_multicast
+
 
   route_table_id = tencentcloud_route_table.utility_route_table.id
 
@@ -77,6 +82,7 @@ resource "tencentcloud_subnet" "public_subnets" {
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
   name              = each.key
+  is_multicast      = each.value.enable_multicast
 
   route_table_id = tencentcloud_route_table.public_route_table.id
 
@@ -103,6 +109,7 @@ resource "tencentcloud_subnet" "stateful_subnets" {
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
   name              = each.key
+  is_multicast      = each.value.enable_multicast
 
   route_table_id = tencentcloud_route_table.stateful_route_table.id
 
@@ -129,6 +136,8 @@ resource "tencentcloud_subnet" "compliance_subnets" {
   cidr_block        = each.value.cidr
   availability_zone = each.value.availability_zone
   name              = each.key
+  is_multicast      = each.value.enable_multicast
+
 
   route_table_id = tencentcloud_route_table.compliance_route_table.id
 
@@ -249,7 +258,7 @@ resource "tencentcloud_route_entry" "rtb_compliance_default_gateway" {
 }
 
 resource "tencentcloud_private_dns_zone" "private_dns" {
-  domain = "${var.vpc_name}.internal."
+  domain = "${var.vpc_name}.internal.io"
 
   vpc_set {
     region      = var.region

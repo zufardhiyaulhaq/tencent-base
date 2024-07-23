@@ -23,11 +23,18 @@ variable "vpc_cidr" {
   type        = string
 }
 
+variable "enable_vpc_multicast" {
+  description = "Enable VPC multicast"
+  type        = bool
+  default     = false
+}
+
 variable "public_subnets" {
   description = "List of public subnets"
   type = map(object({
     cidr              = string
     availability_zone = string
+    enable_multicast  = bool
   }))
 }
 
@@ -36,6 +43,7 @@ variable "utility_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
+    enable_multicast  = bool
   }))
 }
 
@@ -44,6 +52,7 @@ variable "application_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
+    enable_multicast  = bool
   }))
 }
 
@@ -52,6 +61,7 @@ variable "stateful_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
+    enable_multicast  = bool
   }))
 }
 
@@ -60,6 +70,7 @@ variable "compliance_subnets" {
   type = map(object({
     cidr              = string
     availability_zone = string
+    enable_multicast  = bool
   }))
 }
 

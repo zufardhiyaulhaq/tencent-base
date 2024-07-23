@@ -1,3 +1,3 @@
 provider "tencentcloud" {
-  region     = "ap-jakarta"
+  region = "ap-jakarta"
 }
