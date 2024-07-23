@@ -75,17 +75,22 @@ variable "compliance_subnets" {
 }
 
 variable "reserved_nat_ip" {
-  description = "Number of reserved NAT IPs"
-  type        = number
+  description = "reserved NAT IPs"
+  type = map(object({
+    type = string
+  }))
 }
 
-variable "general_nat_ip_count" {
-  description = "Number of general NAT IPs"
-  type        = number
+variable "general_nat_ip" {
+  description = "general NAT IPs"
+  type = map(object({
+    type = string
+  }))
 }
 
-variable "application_nat_ip_count" {
-  description = "Number of application NAT IPs"
-  type        = number
-
+variable "application_nat_ip" {
+  description = "application NAT IPs"
+  type = map(object({
+    type = string
+  }))
 }

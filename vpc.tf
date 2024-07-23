@@ -148,9 +148,11 @@ resource "tencentcloud_subnet" "compliance_subnets" {
 }
 
 resource "tencentcloud_eip" "general_nat_eip" {
-  count = var.general_nat_ip_count
+  for_each = var.general_nat_ip
 
-  name = "general-nat-eip-${count.index + 1}"
+  name = each.key
+  type = each.value.type
+
   tags = {
     team        = var.label_team
     environment = var.label_environment
@@ -178,9 +180,11 @@ resource "tencentcloud_nat_gateway" "general_nat" {
 }
 
 resource "tencentcloud_eip" "application_nat_eip" {
-  count = var.application_nat_ip_count
+  for_each = var.application_nat_ip
 
-  name = "application-nat-eip-${count.index + 1}"
+  name = each.key
+  type = each.value.type
+
   tags = {
     team        = var.label_team
     environment = var.label_environment
@@ -208,9 +212,11 @@ resource "tencentcloud_nat_gateway" "application_nat" {
 }
 
 resource "tencentcloud_eip" "reserved_nat_ip" {
-  count = var.reserved_nat_ip
+  for_each = var.reserved_nat_ip
 
-  name = "reserved-nat-eip-${count.index + 1}"
+  name = each.key
+  type = each.value.type
+
   tags = {
     team        = var.label_team
     environment = var.label_environment

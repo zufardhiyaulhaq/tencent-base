@@ -100,7 +100,42 @@ module "tencent_vpc" {
     },
   }
 
-  reserved_nat_ip          = 2
-  general_nat_ip_count     = 2
-  application_nat_ip_count = 6
+  reserved_nat_ip = {
+    "reserved-nat-ip-01" = {
+      type = "EIP"
+    },
+    "reserved-nat-ip-02" = {
+      type = "EIP"
+    }
+  }
+
+  general_nat_ip = {
+    "general-nat-ip-01" = {
+      type = "EIP"
+    },
+    "general-nat-ip-02" = {
+      type = "EIP"
+    }
+  }
+  
+  application_nat_ip = {
+    "application-nat-ip-01" = {
+      type = "EIP"
+    },
+    "application-nat-ip-02" = {
+      type = "EIP"
+    }
+    "application-nat-ip-03" = {
+      type = "EIP"
+    },
+    "application-nat-ip-04" = {
+      type = "EIP"
+    }
+    "application-nat-ip-05" = {
+      type = "EIP"
+    },
+    "application-nat-ip-06" = {
+      type = "EIP"
+    }
+  }
 }
