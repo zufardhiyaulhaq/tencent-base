@@ -136,3 +136,23 @@ module "tencent_vpc" {
     }
   }
 }
+
+module "tencent_network_acl" {
+  source = "github.com/zufardhiyaulhaq/alibaba-network-acl"
+
+  vpc_id            = module.tencent_vpc.vpc_id
+  label_environment = "staging"
+  label_team        = "emoney"
+
+  public_subnets_cidr      = module.tencent_vpc.public_subnets_cidr
+  utility_subnets_cidr     = module.tencent_vpc.utility_subnets_cidr
+  application_subnets_cidr = module.tencent_vpc.application_subnets_cidr
+  stateful_subnets_cidr    = module.tencent_vpc.stateful_subnets_cidr
+  compliance_subnets_cidr  = module.tencent_vpc.compliance_subnets_cidr
+
+  public_subnets_id      = module.tencent_vpc.public_subnet_ids
+  utility_subnets_id     = module.tencent_vpc.utility_subnet_ids
+  application_subnets_id = module.tencent_vpc.application_subnet_ids
+  stateful_subnets_id    = module.tencent_vpc.stateful_subnet_ids
+  compliance_subnets_id  = module.tencent_vpc.compliance_subnet_ids
+}

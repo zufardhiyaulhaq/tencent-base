@@ -3,6 +3,11 @@ output "vpc_name" {
   value       = tencentcloud_vpc.vpc.name
 }
 
+output "vpc_id" {
+  description = "VPC id"
+  value       = tencentcloud_vpc.vpc.id
+}
+
 output "private_dns_name" {
   description = "private DNS name"
   value       = tencentcloud_private_dns_zone.private_dns.domain
@@ -33,27 +38,27 @@ output "public_subnet_ids" {
   value       = values(tencentcloud_subnet.public_subnets).*.id
 }
 
-output "utility_subnet_cidr" {
+output "utility_subnets_cidr" {
   description = "Utility subnet CIDR"
   value       = values(tencentcloud_subnet.utility_subnets).*.cidr_block
 }
 
-output "application_subnet_cidr" {
+output "application_subnets_cidr" {
   description = "Application subnet CIDR"
   value       = values(tencentcloud_subnet.application_subnets).*.cidr_block
 }
 
-output "stateful_subnet_cidr" {
+output "stateful_subnets_cidr" {
   description = "Stateful subnet CIDR"
   value       = values(tencentcloud_subnet.stateful_subnets).*.cidr_block
 }
 
-output "compliance_subnet_cidr" {
+output "compliance_subnets_cidr" {
   description = "Compliance subnet CIDR"
   value       = values(tencentcloud_subnet.compliance_subnets).*.cidr_block
 }
 
-output "public_subnet_cidr" {
+output "public_subnets_cidr" {
   description = "Public subnet CIDR"
   value       = values(tencentcloud_subnet.public_subnets).*.cidr_block
 }

@@ -3,6 +3,11 @@ output "vpc_name" {
   value       = module.tencent_vpc.vpc_name
 }
 
+output "vpc_id" {
+  description = "VPC id"
+  value       = module.tencent_vpc.vpc_id
+}
+
 output "private_dns_name" {
   description = "private DNS name"
   value       = module.tencent_vpc.private_dns_name
@@ -33,29 +38,29 @@ output "public_subnet_ids" {
   value       = module.tencent_vpc.public_subnet_ids
 }
 
-output "utility_subnet_cidr" {
+output "utility_subnets_cidr" {
   description = "Utility subnet CIDR"
-  value       = module.tencent_vpc.utility_subnet_cidr
+  value       = module.tencent_vpc.utility_subnets_cidr
 }
 
-output "application_subnet_cidr" {
+output "application_subnets_cidr" {
   description = "Application subnet CIDR"
-  value       = module.tencent_vpc.application_subnet_cidr
+  value       = module.tencent_vpc.application_subnets_cidr
 }
 
-output "stateful_subnet_cidr" {
+output "stateful_subnets_cidr" {
   description = "Stateful subnet CIDR"
-  value       = module.tencent_vpc.stateful_subnet_cidr
+  value       = module.tencent_vpc.stateful_subnets_cidr
 }
 
-output "compliance_subnet_cidr" {
+output "compliance_subnets_cidr" {
   description = "Compliance subnet CIDR"
-  value       = module.tencent_vpc.compliance_subnet_cidr
+  value       = module.tencent_vpc.compliance_subnets_cidr
 }
 
-output "public_subnet_cidr" {
+output "public_subnets_cidr" {
   description = "Public subnet CIDR"
-  value       = module.tencent_vpc.public_subnet_cidr
+  value       = module.tencent_vpc.public_subnets_cidr
 }
 
 output "nat_general_addresses" {
@@ -66,9 +71,4 @@ output "nat_general_addresses" {
 output "nat_application_addresses" {
   description = "NAT application addresses"
   value       = module.tencent_vpc.nat_application_addresses
-}
-
-output "nat_reserved_addresses" {
-  description = "NAT reserved addresses"
-  value       = module.tencent_vpc.nat_reserved_addresses
 }
