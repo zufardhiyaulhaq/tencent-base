@@ -138,7 +138,7 @@ module "tencent_vpc" {
 }
 
 module "tencent_network_acl" {
-  source = "github.com/zufardhiyaulhaq/alibaba-network-acl"
+  source = "github.com/zufardhiyaulhaq/tencent-network-acl"
 
   vpc_id            = module.tencent_vpc.vpc_id
   label_environment = "staging"
