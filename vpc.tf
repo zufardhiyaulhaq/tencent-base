@@ -211,18 +211,6 @@ resource "tencentcloud_nat_gateway" "application_nat" {
   }
 }
 
-resource "tencentcloud_eip" "reserved_nat_ip" {
-  for_each = var.reserved_nat_ip
-
-  name = each.key
-  type = each.value.type
-
-  tags = {
-    team        = var.label_team
-    environment = var.label_environment
-  }
-}
-
 resource "tencentcloud_route_entry" "rtb_application_default_gateway" {
   vpc_id         = tencentcloud_route_table.application_route_table.vpc_id
   route_table_id = tencentcloud_route_table.application_route_table.id

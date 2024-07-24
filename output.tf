@@ -67,8 +67,3 @@ output "nat_application_addresses" {
   description = "NAT application addresses"
   value       = values(tencentcloud_eip.application_nat_eip).*.public_ip
 }
-
-output "nat_reserved_addresses" {
-  description = "NAT reserved addresses"
-  value       = values(tencentcloud_eip.reserved_nat_ip).*.public_ip
-}

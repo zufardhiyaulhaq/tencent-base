@@ -100,15 +100,6 @@ module "tencent_vpc" {
     },
   }
 
-  reserved_nat_ip = {
-    "reserved-nat-ip-01" = {
-      type = "EIP"
-    },
-    "reserved-nat-ip-02" = {
-      type = "EIP"
-    }
-  }
-
   general_nat_ip = {
     "general-nat-ip-01" = {
       type = "EIP"
@@ -117,7 +108,7 @@ module "tencent_vpc" {
       type = "EIP"
     }
   }
-  
+
   application_nat_ip = {
     "application-nat-ip-01" = {
       type = "EIP"
@@ -135,6 +126,12 @@ module "tencent_vpc" {
       type = "EIP"
     },
     "application-nat-ip-06" = {
+      type = "EIP"
+    },
+    "application-nat-ip-07" = {
+      type = "EIP"
+    },
+    "application-nat-ip-08" = {
       type = "EIP"
     }
   }

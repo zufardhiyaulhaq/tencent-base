@@ -74,13 +74,6 @@ variable "compliance_subnets" {
   }))
 }
 
-variable "reserved_nat_ip" {
-  description = "reserved NAT IPs"
-  type = map(object({
-    type = string
-  }))
-}
-
 variable "general_nat_ip" {
   description = "general NAT IPs"
   type = map(object({
