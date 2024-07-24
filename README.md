@@ -20,7 +20,6 @@ No modules.
 |------|------|
 | [tencentcloud_eip.application_nat_eip](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/1.81.111/docs/resources/eip) | resource |
 | [tencentcloud_eip.general_nat_eip](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/1.81.111/docs/resources/eip) | resource |
-| [tencentcloud_eip.reserved_nat_ip](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/1.81.111/docs/resources/eip) | resource |
 | [tencentcloud_nat_gateway.application_nat](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/1.81.111/docs/resources/nat_gateway) | resource |
 | [tencentcloud_nat_gateway.general_nat](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/1.81.111/docs/resources/nat_gateway) | resource |
 | [tencentcloud_private_dns_zone.private_dns](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/1.81.111/docs/resources/private_dns_zone) | resource |
@@ -45,16 +44,15 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_application_nat_ip_count"></a> [application\_nat\_ip\_count](#input\_application\_nat\_ip\_count) | Number of application NAT IPs | `number` | n/a | yes |
+| <a name="input_application_nat_ip"></a> [application\_nat\_ip](#input\_application\_nat\_ip) | application NAT IPs | <pre>map(object({<br>    type = string<br>  }))</pre> | n/a | yes |
 | <a name="input_application_subnets"></a> [application\_subnets](#input\_application\_subnets) | List of application subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
 | <a name="input_compliance_subnets"></a> [compliance\_subnets](#input\_compliance\_subnets) | List of compliance subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
 | <a name="input_enable_vpc_multicast"></a> [enable\_vpc\_multicast](#input\_enable\_vpc\_multicast) | Enable VPC multicast | `bool` | `false` | no |
-| <a name="input_general_nat_ip_count"></a> [general\_nat\_ip\_count](#input\_general\_nat\_ip\_count) | Number of general NAT IPs | `number` | n/a | yes |
+| <a name="input_general_nat_ip"></a> [general\_nat\_ip](#input\_general\_nat\_ip) | general NAT IPs | <pre>map(object({<br>    type = string<br>  }))</pre> | n/a | yes |
 | <a name="input_label_environment"></a> [label\_environment](#input\_label\_environment) | Enviroment label | `string` | n/a | yes |
 | <a name="input_label_team"></a> [label\_team](#input\_label\_team) | Team label | `string` | n/a | yes |
 | <a name="input_public_subnets"></a> [public\_subnets](#input\_public\_subnets) | List of public subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | Region of VPC | `string` | n/a | yes |
-| <a name="input_reserved_nat_ip"></a> [reserved\_nat\_ip](#input\_reserved\_nat\_ip) | Number of reserved NAT IPs | `number` | n/a | yes |
 | <a name="input_stateful_subnets"></a> [stateful\_subnets](#input\_stateful\_subnets) | List of stateful subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
 | <a name="input_utility_subnets"></a> [utility\_subnets](#input\_utility\_subnets) | List of utility subnets | <pre>map(object({<br>    cidr              = string<br>    availability_zone = string<br>    enable_multicast  = bool<br>  }))</pre> | n/a | yes |
 | <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR block for the VPC | `string` | n/a | yes |
@@ -64,8 +62,18 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_application_subnet_ids"></a> [application\_subnet\_ids](#output\_application\_subnet\_ids) | Application subnet IDs |
+| <a name="output_application_subnets_cidr"></a> [application\_subnets\_cidr](#output\_application\_subnets\_cidr) | Application subnet CIDR |
+| <a name="output_compliance_subnet_ids"></a> [compliance\_subnet\_ids](#output\_compliance\_subnet\_ids) | Compliance subnet IDs |
+| <a name="output_compliance_subnets_cidr"></a> [compliance\_subnets\_cidr](#output\_compliance\_subnets\_cidr) | Compliance subnet CIDR |
 | <a name="output_nat_application_addresses"></a> [nat\_application\_addresses](#output\_nat\_application\_addresses) | NAT application addresses |
 | <a name="output_nat_general_addresses"></a> [nat\_general\_addresses](#output\_nat\_general\_addresses) | NAT general addresses |
-| <a name="output_nat_reserved_addresses"></a> [nat\_reserved\_addresses](#output\_nat\_reserved\_addresses) | NAT reserved addresses |
 | <a name="output_private_dns_name"></a> [private\_dns\_name](#output\_private\_dns\_name) | private DNS name |
+| <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | Public subnet IDs |
+| <a name="output_public_subnets_cidr"></a> [public\_subnets\_cidr](#output\_public\_subnets\_cidr) | Public subnet CIDR |
+| <a name="output_stateful_subnet_ids"></a> [stateful\_subnet\_ids](#output\_stateful\_subnet\_ids) | Stateful subnet IDs |
+| <a name="output_stateful_subnets_cidr"></a> [stateful\_subnets\_cidr](#output\_stateful\_subnets\_cidr) | Stateful subnet CIDR |
+| <a name="output_utility_subnet_ids"></a> [utility\_subnet\_ids](#output\_utility\_subnet\_ids) | Utility subnet IDs |
+| <a name="output_utility_subnets_cidr"></a> [utility\_subnets\_cidr](#output\_utility\_subnets\_cidr) | Utility subnet CIDR |
+| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | VPC id |
 | <a name="output_vpc_name"></a> [vpc\_name](#output\_vpc\_name) | VPC name |
