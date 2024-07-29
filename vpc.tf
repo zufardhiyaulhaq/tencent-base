@@ -166,7 +166,7 @@ resource "tencentcloud_nat_gateway" "general_nat" {
   assigned_eip_set = [
     for eip in tencentcloud_eip.general_nat_eip : eip.public_ip
   ]
-  nat_product_version = 2
+  nat_product_version = 1
   tags = {
     team        = var.label_team
     environment = var.label_environment
@@ -198,7 +198,7 @@ resource "tencentcloud_nat_gateway" "application_nat" {
   assigned_eip_set = [
     for eip in tencentcloud_eip.application_nat_eip : eip.public_ip
   ]
-  nat_product_version = 2
+  nat_product_version = 1
   tags = {
     team        = var.label_team
     environment = var.label_environment
