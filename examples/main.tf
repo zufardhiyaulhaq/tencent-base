@@ -155,4 +155,11 @@ module "tencent_network_acl" {
   application_subnets_id = module.tencent_vpc.application_subnet_ids
   stateful_subnets_id    = module.tencent_vpc.stateful_subnet_ids
   compliance_subnets_id  = module.tencent_vpc.compliance_subnet_ids
+
+  additional_ingress_public_rules  = []
+  additional_ingress_utility_rules = []
+  additional_ingress_application_rules = [
+    # allow k8s api server
+    "ACCEPT#0.0.0.0/0#443#TCP",
+  ]
 }

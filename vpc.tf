@@ -211,44 +211,39 @@ resource "tencentcloud_nat_gateway" "application_nat" {
   }
 }
 
-resource "tencentcloud_route_entry" "rtb_application_default_gateway" {
-  vpc_id         = tencentcloud_route_table.application_route_table.vpc_id
-  route_table_id = tencentcloud_route_table.application_route_table.id
-  cidr_block     = "0.0.0.0/0"
-  next_type      = "nat_gateway"
-  next_hub       = tencentcloud_nat_gateway.application_nat.id
+resource "tencentcloud_route_table_entry" "rtb_application_default_gateway" {
+  route_table_id         = tencentcloud_route_table.application_route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  next_type              = "NAT"
+  next_hub               = tencentcloud_nat_gateway.application_nat.id
 }
 
-resource "tencentcloud_route_entry" "rtb_utility_default_gateway" {
-  vpc_id         = tencentcloud_route_table.utility_route_table.vpc_id
-  route_table_id = tencentcloud_route_table.utility_route_table.id
-  cidr_block     = "0.0.0.0/0"
-  next_type      = "nat_gateway"
-  next_hub       = tencentcloud_nat_gateway.general_nat.id
+resource "tencentcloud_route_table_entry" "rtb_utility_default_gateway" {
+  route_table_id         = tencentcloud_route_table.utility_route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  next_type              = "NAT"
+  next_hub               = tencentcloud_nat_gateway.general_nat.id
 }
 
-resource "tencentcloud_route_entry" "rtb_public_default_gateway" {
-  vpc_id         = tencentcloud_route_table.public_route_table.vpc_id
-  route_table_id = tencentcloud_route_table.public_route_table.id
-  cidr_block     = "0.0.0.0/0"
-  next_type      = "nat_gateway"
-  next_hub       = tencentcloud_nat_gateway.general_nat.id
+resource "tencentcloud_route_table_entry" "rtb_public_default_gateway" {
+  route_table_id         = tencentcloud_route_table.public_route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  next_type              = "NAT"
+  next_hub               = tencentcloud_nat_gateway.general_nat.id
 }
 
-resource "tencentcloud_route_entry" "rtb_stateful_default_gateway" {
-  vpc_id         = tencentcloud_route_table.stateful_route_table.vpc_id
-  route_table_id = tencentcloud_route_table.stateful_route_table.id
-  cidr_block     = "0.0.0.0/0"
-  next_type      = "nat_gateway"
-  next_hub       = tencentcloud_nat_gateway.general_nat.id
+resource "tencentcloud_route_table_entry" "rtb_stateful_default_gateway" {
+  route_table_id         = tencentcloud_route_table.stateful_route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  next_type              = "NAT"
+  next_hub               = tencentcloud_nat_gateway.general_nat.id
 }
 
-resource "tencentcloud_route_entry" "rtb_compliance_default_gateway" {
-  vpc_id         = tencentcloud_route_table.compliance_route_table.vpc_id
-  route_table_id = tencentcloud_route_table.compliance_route_table.id
-  cidr_block     = "0.0.0.0/0"
-  next_type      = "nat_gateway"
-  next_hub       = tencentcloud_nat_gateway.general_nat.id
+resource "tencentcloud_route_table_entry" "rtb_compliance_default_gateway" {
+  route_table_id         = tencentcloud_route_table.compliance_route_table.id
+  destination_cidr_block = "0.0.0.0/0"
+  next_type              = "NAT"
+  next_hub               = tencentcloud_nat_gateway.general_nat.id
 }
 
 resource "tencentcloud_private_dns_zone" "private_dns" {
