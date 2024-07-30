@@ -161,5 +161,7 @@ module "tencent_network_acl" {
   additional_ingress_application_rules = [
     # allow k8s api server
     "ACCEPT#0.0.0.0/0#443#TCP",
+    # allow k8s nodeport
+    "ACCEPT#0.0.0.0/0#30000-32767#TCP",
   ]
 }
