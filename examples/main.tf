@@ -136,32 +136,3 @@ module "tencent_vpc" {
     }
   }
 }
-
-module "tencent_network_acl" {
-  source = "github.com/zufardhiyaulhaq/tencent-network-acl"
-
-  vpc_id            = module.tencent_vpc.vpc_id
-  label_environment = "staging"
-  label_team        = "emoney"
-
-  public_subnets_cidr      = module.tencent_vpc.public_subnets_cidr
-  utility_subnets_cidr     = module.tencent_vpc.utility_subnets_cidr
-  application_subnets_cidr = module.tencent_vpc.application_subnets_cidr
-  stateful_subnets_cidr    = module.tencent_vpc.stateful_subnets_cidr
-  compliance_subnets_cidr  = module.tencent_vpc.compliance_subnets_cidr
-
-  public_subnets_id      = module.tencent_vpc.public_subnet_ids
-  utility_subnets_id     = module.tencent_vpc.utility_subnet_ids
-  application_subnets_id = module.tencent_vpc.application_subnet_ids
-  stateful_subnets_id    = module.tencent_vpc.stateful_subnet_ids
-  compliance_subnets_id  = module.tencent_vpc.compliance_subnet_ids
-
-  additional_ingress_public_rules  = []
-  additional_ingress_utility_rules = []
-  additional_ingress_application_rules = [
-    # allow k8s api server
-    "ACCEPT#0.0.0.0/0#443#TCP",
-    # allow k8s nodeport
-    "ACCEPT#0.0.0.0/0#30000-32767#TCP",
-  ]
-}
